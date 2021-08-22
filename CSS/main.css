@@ -23,8 +23,6 @@
 }
 
 body {
-  /* margin: 0; */
-  /* padding: 0; */
   font-size: 1.125rem;
   font-weight: 400;
   font-family: var(--barlow);
@@ -32,7 +30,19 @@ body {
 
 .wrapper {
   overflow-x: hidden;
+  overflow-y: visible;
   position: relative;
+}
+
+.background {
+  background-color: var(--light-grayish-blue);
+  height: 55vh;
+  border-radius: 0 0 0 50px;
+  z-index: -1;
+  width: 50vw;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 h1,
@@ -40,6 +50,14 @@ h3,
 nav a,
 button {
   font-family: var(--barlow-condensed);
+}
+
+button {
+  cursor: pointer;
+}
+
+nav a:hover {
+  text-decoration: underline 2px;
 }
 
 .container {
@@ -54,13 +72,8 @@ nav .container {
   justify-content: space-between;
 }
 
-.nav-logo {
-  /* width: auto; */
-  /* height: auto; */
-}
-
 .nav-list {
-  width: 80%;
+  width: 85%;
   list-style: none;
   padding: 0;
   background: white;
@@ -76,7 +89,7 @@ nav .container {
 }
 
 .nav-item {
-  margin: 1.6em auto;
+  margin: 1.1em auto;
 }
 
 .nav-item a {
@@ -97,6 +110,7 @@ nav .container {
 .nav-toggle {
   border: none;
   background: none;
+  padding: 0;
 }
 
 .close-list {
@@ -118,9 +132,9 @@ nav .container {
 .main-container {
   flex-direction: column-reverse;
   align-items: left;
-  margin-top: 3em;
+  margin-top: 2.5em;
   justify-content: space-between;
-  gap: 3em;
+  gap: 2.5em;
 }
 
 .main-picture img {
@@ -143,8 +157,11 @@ h3 {
 h3 span {
   background: var(--very-dark-blue);
   color: white;
-  padding: 0.1em 0.65em;
+  padding: 0.2em 0.65em;
   border-radius: 100px;
+  font-weight: 700;
+  letter-spacing: initial;
+  margin-right: 0.5em;
 }
 
 .cta {
@@ -160,4 +177,83 @@ h3 span {
   border: none;
   padding: 0.5em 0.7em;
   border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.demo-button:hover,
+.demo-button:focus {
+  opacity: 0.6;
+}
+
+/* Desktop */
+
+@media (min-width: 1000px) {
+  .background {
+    height: 60%;
+  }
+
+  .nav-logo {
+    height: fit-content;
+    align-self: center;
+  }
+
+  .nav-list {
+    display: flex;
+    width: 40%;
+    background: none;
+    box-shadow: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    top: auto;
+    left: auto;
+    transform: none;
+    justify-content: right;
+    align-items: center;
+  }
+
+  .nav-login {
+    position: relative;
+    margin-left: 5em;
+  }
+
+  .nav-login::before {
+    content: ".";
+    position: absolute;
+    right: 2.1em;
+    top: -0.65em;
+    font-size: 40px;
+    color: var(--grayish-blue);
+  }
+
+  .nav-divider {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .main-container {
+    flex-direction: row;
+    margin-top: 8em;
+  }
+
+  .main-text {
+    width: 70%;
+  }
+
+  h1 {
+    font-size: 3.8rem;
+  }
+
+  .main-text p {
+    width: 60%;
+    font-size: 1.2rem;
+  }
+
+  .main-picture img {
+    width: 180%;
+    transform: translateX(1%);
+  }
 }
